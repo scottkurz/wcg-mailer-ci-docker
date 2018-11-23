@@ -1,0 +1,1 @@
+*/25 * * * * echo "$(date)" >> /home/ibmadmin/cron.log 2>&1; docker exec mycg bash -c '/opt/IBM/WebSphere/AppServer/bin/lrcmd.sh -userid=wsadmin -password=`cat /tmp/PASSWORD` -port=9443 -cmd=submit -xJCL=/work/xjcl/Mailer.xml'
