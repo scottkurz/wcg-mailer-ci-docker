@@ -1,0 +1,7 @@
+FROM cgmailer-hc:latest
+
+COPY --chown=was:was swat.ear /work/app/
+
+# 1. Install SWAT EAR
+COPY --chown=was:was swat.py /work/config/
+RUN /work/configure.sh /work/config/swat.py
