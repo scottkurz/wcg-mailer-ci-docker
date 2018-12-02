@@ -1,7 +1,13 @@
-FROM cgmailer-hc:latest
+FROM scottkurz/cgmailer:1
+
+#HealthCenter
+COPY --chown=was:was jvm.hc.props /work/config/jvm.hc.props
+# output dir
+RUN mkdir /work/hc
+RUN work/applyConfig.sh /work/config/jvm.hc.props
 
 COPY --chown=was:was swat.ear /work/app/
+COPY --chown=was:was installSwat.py /work/config/
+RUN /work/configure.sh /work/config/installSwat.py
 
-# 1. Install SWAT EAR
-COPY --chown=was:was swat.py /work/config/
-RUN /work/configure.sh /work/config/swat.py
+
