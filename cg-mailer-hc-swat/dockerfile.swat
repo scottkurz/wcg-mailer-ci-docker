@@ -6,8 +6,8 @@ COPY --chown=was:was jvm.hc.props /work/config/jvm.hc.props
 RUN mkdir /work/hc
 RUN work/applyConfig.sh /work/config/jvm.hc.props
 
-COPY --chown=was:was swat.ear /work/app/
 COPY --chown=was:was installSwat.py /work/config/
+COPY --chown=was:was swat.ear /work/app/
 RUN /work/configure.sh /work/config/installSwat.py
 
 
