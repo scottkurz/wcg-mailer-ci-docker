@@ -10,4 +10,4 @@ AttributeInfo=jvmEntries
 #
 #Properties
 #
-genericJvmArguments="-Xhealthcenter:level=headless -Dcom.ibm.java.diagnostics.healthcenter.headless.output.directory=/work/hc -Dcom.ibm.java.diagnostics.healthcenter.headless.files.max.size=1073741824 -Dcom.ibm.java.diagnostics.healthcenter.headless.files.to.keep=10"
+genericJvmArguments="-Xhealthcenter:level=headless -Dcom.ibm.java.diagnostics.healthcenter.headless.output.directory=/work/hc -Dcom.ibm.java.diagnostics.healthcenter.headless.files.max.size=1073741824 -Dcom.ibm.java.diagnostics.healthcenter.headless.files.to.keep=10 -Xdump:what"
