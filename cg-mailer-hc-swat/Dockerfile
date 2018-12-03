@@ -38,6 +38,20 @@ RUN /work/configure.sh /work/config/installApps.py
 COPY --chown=was:was mailerDS.py /work/config/
 RUN /work/configure.sh /work/config/mailerDS.py
 
-# 5. remaining props
 RUN work/applyConfig.sh /work/config/config.props
+
+# 5. HealthCenter and JVM -X args
+COPY --chown=was:was jvm.hc.props /work/config/jvm.hc.props
+#--- output dir
+RUN mkdir /work/hc
+RUN work/applyConfig.sh /work/config/jvm.hc.props
+
+# 6. install SWAT - most recently-changed part of the image
+COPY --chown=was:was installSwat.py /work/config/
+COPY --chown=was:was swat.ear /work/app/
+RUN /work/configure.sh /work/config/installSwat.py
+
+# 7. 
+COPY --chown=was:was shrinkMailerDSPoolSize.py /work/config/
+RUN /work/configure.sh /work/config/shrinkMailerDSPoolSize.py
 
